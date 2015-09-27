@@ -27,6 +27,7 @@ public class Klasifikasi {
     public void loadDataTest(String DATA_SOURCE) {
         try {
             if (DATA_SOURCE.endsWith(".arff")){
+                classifier = new FilteredClassifier();
                 BufferedReader reader = new BufferedReader(new FileReader(DATA_SOURCE));
                 ArffLoader.ArffReader arff = new ArffLoader.ArffReader(reader);
                 instances = arff.getData();

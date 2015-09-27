@@ -6,8 +6,15 @@
 
 package weka.filter;
 
+import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.meta.FilteredClassifier;
+import weka.classifiers.meta.MultiClassClassifier;
+import weka.classifiers.trees.Id3;
+import weka.classifiers.trees.J48;
+import weka.core.Instances;
+
+import java.util.Scanner;
 
 public class WekaFilter {
 
@@ -16,15 +23,34 @@ public class WekaFilter {
      */
     public static void main(String[] args) throws Exception{
         FilteredClassifier tes = new FilteredClassifier();
+        Scanner in = new Scanner(System.in);
+        System.out.println("1 untuk NaiveBayes");
+        System.out.println("2 untuk J48");
+        System.out.println("3 untuk ID3");
+        int mode = 0;
         try{
-            tes.setClassifier(new NaiveBayes());
+            while ((mode < 1) || (mode > 3)){
+                System.out.print("Mode yang diinginkan adalah: ");
+                mode = in.nextInt();
+                if (mode == 1){
+                    tes.setClassifier(new NaiveBayes());
+                }
+                else if (mode == 2){
+                    tes.setClassifier(new J48());
+                }
+                else if (mode == 3){
+                    tes.setClassifier(new Id3());
+                }
+            }
             System.out.println("berhasil set classifier");
         } catch (Exception e) {
             System.out.println("set classifier gagal");
         }
-        
+
         FilterDataset filter = new FilterDataset();
-        filter.loadDataset("src/data/weather.nominal.arff");
+        filter.loadDataset("src/data/iris.arff");
+        Instances testSet = filter.percentageSplit(100);
+        filter.Resample();
         filter.setClassifier(tes);
 
 //        evaluate() harus dijalankan sebelum build classifier
@@ -36,7 +62,7 @@ public class WekaFilter {
 
         Klasifikasi cls = new Klasifikasi();
 
-        cls.loadDataTest("src/data/test.csv");
+        cls.loadDataTest("src/data/TestIris.arff");
         cls.loadModel("src/data/training_data.model");
         cls.classify();
 
