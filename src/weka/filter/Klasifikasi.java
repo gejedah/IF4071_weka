@@ -68,6 +68,11 @@ public class Klasifikasi {
         }
     }
 
+    public String testModel(){
+
+        return null;
+    }
+
     public void classify() {
         try {
             double pred = classifier.classifyInstance(instances.instance(0));

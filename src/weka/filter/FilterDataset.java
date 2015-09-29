@@ -13,16 +13,21 @@ import java.util.Random;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.evaluation.EvaluationUtils;
 import weka.classifiers.meta.FilteredClassifier;
+import weka.classifiers.meta.MultiClassClassifier;
 import weka.core.Attribute;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader.ArffReader;
 import weka.core.converters.CSVLoader;
-import weka.filters.Filter;
+import weka.filters.Filter.*;
+import weka.filters.supervised.instance.Resample;
 
 public class FilterDataset {
     private Instances dataTrain;
     private FilteredClassifier classifier;
+//    private MultiClassClassifier classifier;
+    private Resample sampler;
 
     public void loadDataset(String DATA_SOURCE) {
         try {
@@ -32,6 +37,8 @@ public class FilterDataset {
                 dataTrain = arff.getData();
                 System.out.println("Byk Attribut: "+dataTrain.numAttributes());
                 System.out.println("Byk Instances: "+dataTrain.numInstances());
+                dataTrain.setClassIndex(dataTrain.numAttributes()-1);
+                System.out.println("Byk kelas: " + dataTrain.numClasses());
 //                System.out.println(dataTrain);
                 System.out.println("===== Loaded dataset Arff: " + DATA_SOURCE + " =====");
                 reader.close();
@@ -40,8 +47,10 @@ public class FilterDataset {
                 CSVLoader csvLoader = new CSVLoader();
                 csvLoader.setSource(new File(DATA_SOURCE));
                 dataTrain = csvLoader.getDataSet();
-                System.out.println("Byk Attribut: "+ dataTrain.numAttributes());
-                System.out.println("Byk Instances: "+ dataTrain.numInstances());
+                System.out.println("Byk Attribut: " + dataTrain.numAttributes());
+                System.out.println("Byk Instances: " + dataTrain.numInstances());
+                dataTrain.setClassIndex(dataTrain.numAttributes()-1);
+                System.out.println("Byk kelas: " +dataTrain.numClasses());
 //                System.out.println(dataTrain);
                 System.out.println("===== Loaded dataset CSV: " + DATA_SOURCE + " =====");
             }
@@ -56,8 +65,26 @@ public class FilterDataset {
         dataTrain.deleteAttributeAt(index);
     }
 
-    public void Resample(){
-        dataTrain.resample(new Random(10));
+    public void Resample() throws Exception {
+//        int[] tes= new int[dataTrain.numClasses()+1];
+//        tes[0] = 0;
+//        tes[1] = 9;
+//        tes[2] = 10;
+//        System.out.println("Byk Attribut: "+dataTrain.numAttributes());
+//        System.out.println("Byk Instances: "+dataTrain.numInstances());
+//        System.out.println("Byk kelas: " + dataTrain.numClasses());
+//        sampler= new Resample();
+        System.out.println("Sebelum Resample "+ dataTrain);
+//        sampler.setBiasToUniformClass(0.0);
+//        sampler.setInvertSelection(false);
+//        sampler.setInputFormat(dataTrain);
+//        dataTrain.sort(4);
+//        System.out.println("Sesudah disort "+ dataTrain);
+//        sampler.createSubsampleWithoutReplacement(new Random(1), dataTrain.numInstances(), 5, dataTrain.numClasses(), tes);
+//        System.out.println("Sample output: " + sampler.output());
+        dataTrain = dataTrain.resample(new Random(2));
+        System.out.println("Sesudah Resample " + dataTrain);
+//        System.out.println("Resample: "+ sampler);
     }
 
     public Instances percentageSplit(int percent){
@@ -84,6 +111,7 @@ public class FilterDataset {
      * @param classifier the classifier to set
      */
     public void setClassifier(FilteredClassifier classifier) {
+//    public void setClassifier(MultiClassClassifier classifier) {
         this.classifier = classifier;
     }
 
@@ -97,8 +125,18 @@ public class FilterDataset {
 //            classifier.setFilter(filter);
             Evaluation eval = new Evaluation(dataTrain);
             eval.crossValidateModel(classifier, dataTrain, 10, new Random(1));
+//            eval.evaluateModel(classifier, dataTrain);
+            double[][] tes = eval.confusionMatrix();
             System.out.println("Summary: " + eval.toSummaryString());
             System.out.println("Class Detail: "+ eval.toClassDetailsString());
+            System.out.println("=== Confusion Matrix ===");
+            for (int i=0; i< tes.length; i++){
+                for (int j = 0; j < tes[i].length ; j++) {
+                    System.out.print(tes[i][j] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
             System.out.println("===== Evaluating on filtered (training) dataset done =====");
         }
         catch (Exception e) {
@@ -117,7 +155,7 @@ public class FilterDataset {
 //            classifier.setFilter(filter);
             classifier.buildClassifier(dataTrain);
             // Uncomment to see the classifier
-//             System.out.println(classifier);
+             System.out.println(classifier);
             System.out.println("===== classifier builded =====");
         }
         catch (Exception e) {
