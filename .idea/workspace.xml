@@ -44,26 +44,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WekaFilter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WekaFilter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/myWeka/filter/WekaFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+            <state vertical-scroll-proportion="-1.64">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#0#2510#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myID3.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="myID3.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myWeka/classifiers/tree/myID3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5707071">
-              <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+            <state vertical-scroll-proportion="-8.793103">
+              <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
               <folding>
-                <element signature="e#0#17123#0" expanded="true" />
+                <element signature="e#0#16234#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="method#getCapabilities#0;class#myID3#0" expanded="false" />
+                <element signature="method#buildClassifier#0;class#myID3#0" expanded="false" />
+                <element signature="method#makeTree#0;class#myID3#0" expanded="false" />
+                <element signature="method#unseenCase#0;class#myID3#0" expanded="false" />
+                <element signature="e#16182#16183#0" expanded="true" />
+                <element signature="e#16230#16231#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +94,8 @@
         <option value="$PROJECT_DIR$/src/weka/filter/FilterDataset.java" />
         <option value="$PROJECT_DIR$/src/weka/filter/myID3.java" />
         <option value="$PROJECT_DIR$/src/myWeka/filter/Klasifikasi.java" />
-        <option value="$PROJECT_DIR$/src/myWeka/filter/WekaFilter.java" />
         <option value="$PROJECT_DIR$/src/myWeka/filter/FilterDataset.java" />
+        <option value="$PROJECT_DIR$/src/myWeka/filter/WekaFilter.java" />
         <option value="$PROJECT_DIR$/src/myWeka/classifiers/tree/myID3.java" />
       </list>
     </option>
@@ -511,7 +517,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -543,7 +549,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#2510#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -553,8 +559,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#17123#0" expanded="true" />
+            <element signature="e#0#16234#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#getCapabilities#0;class#myID3#0" expanded="false" />
+            <element signature="method#buildClassifier#0;class#myID3#0" expanded="false" />
+            <element signature="method#makeTree#0;class#myID3#0" expanded="false" />
+            <element signature="method#unseenCase#0;class#myID3#0" expanded="false" />
+            <element signature="e#16182#16183#0" expanded="true" />
+            <element signature="e#16230#16231#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -710,23 +722,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myWeka/filter/WekaFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/myWeka/classifiers/tree/myID3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        <state vertical-scroll-proportion="-8.793103">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
           <folding>
+            <element signature="e#0#16234#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="method#getCapabilities#0;class#myID3#0" expanded="false" />
+            <element signature="method#buildClassifier#0;class#myID3#0" expanded="false" />
+            <element signature="method#makeTree#0;class#myID3#0" expanded="false" />
+            <element signature="method#unseenCase#0;class#myID3#0" expanded="false" />
+            <element signature="e#16182#16183#0" expanded="true" />
+            <element signature="e#16230#16231#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myWeka/classifiers/tree/myID3.java">
+    <entry file="file://$PROJECT_DIR$/src/myWeka/filter/WekaFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5707071">
-          <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+        <state vertical-scroll-proportion="-1.64">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
-            <element signature="e#0#17123#0" expanded="true" />
-            <element signature="imports" expanded="true" />
+            <element signature="e#0#2510#0" expanded="true" />
           </folding>
         </state>
       </provider>

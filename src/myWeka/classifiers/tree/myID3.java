@@ -30,39 +30,17 @@ import weka.core.Capabilities;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.NoSupportForMissingValuesException;
-import weka.core.RevisionUtils;
-import weka.core.TechnicalInformation;
 import weka.core.TechnicalInformationHandler;
 import weka.core.Utils;
 import weka.core.Capabilities.Capability;
-import weka.core.TechnicalInformation.Field;
-import weka.core.TechnicalInformation.Type;
 
 import java.util.Enumeration;
 
 /**
  <!-- globalinfo-start -->
- * Class for constructing an unpruned decision tree based on the ID3 algorithm. Can only deal with nominal attributes. No missing values allowed. Empty leaves may result in unclassified instances. For more information see: <br/>
+ * Class for constructing an unpruned decision tree based on the ID3 algorithm. Can only deal with nominal attributes. No missing values allowed.<br/>
  * <br/>
- * R. Quinlan (1986). Induction of decision trees. Machine Learning. 1(1):81-106.
- * <p/>
  <!-- globalinfo-end -->
- *
- <!-- technical-bibtex-start -->
- * BibTeX:
- * <pre>
- * &#64;article{Quinlan1986,
- *    author = {R. Quinlan},
- *    journal = {Machine Learning},
- *    number = {1},
- *    pages = {81-106},
- *    title = {Induction of decision trees},
- *    volume = {1},
- *    year = {1986}
- * }
- * </pre>
- * <p/>
- <!-- technical-bibtex-end -->
  *
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision: 6404 $
@@ -216,9 +194,7 @@ public class myID3
      * @return the classification
      * @throws NoSupportForMissingValuesException if instance has missing values
      */
-    public double classifyInstance(Instance instance)
-            throws NoSupportForMissingValuesException {
-
+    public double classifyInstance(Instance instance) throws NoSupportForMissingValuesException {
         if (instance.hasMissingValue()) {
             throw new NoSupportForMissingValuesException("Id3: no missing values, "
                     + "please.");
@@ -238,9 +214,7 @@ public class myID3
      * @return the class distribution for the given instance
      * @throws NoSupportForMissingValuesException if instance has missing values
      */
-    public double[] distributionForInstance(Instance instance)
-            throws NoSupportForMissingValuesException {
-
+    public double[] distributionForInstance(Instance instance) throws NoSupportForMissingValuesException {
         if (instance.hasMissingValue()) {
             throw new NoSupportForMissingValuesException("Id3: no missing values, "
                     + "please.");
@@ -276,9 +250,7 @@ public class myID3
      * @return the information gain for the given attribute and data
      * @throws Exception if computation fails
      */
-    private double computeInfoGain(Instances data, Attribute att)
-            throws Exception {
-
+    private double computeInfoGain(Instances data, Attribute att) throws Exception {
         double infoGain = computeEntropy(data);
         Instances[] data_split = splitData(data, att);
         int j = 0;
@@ -301,7 +273,6 @@ public class myID3
      * @throws Exception if computation fails
      */
     private double computeEntropy(Instances data) throws Exception {
-
         double [] classCounts = new double[data.numClasses()];
         Enumeration instEnum = data.enumerateInstances();
         while (instEnum.hasMoreElements()) {
@@ -481,15 +452,6 @@ public class myID3
         result.append("}\n");
 
         return result.toString();
-    }
-
-    /**
-     * Returns the revision string.
-     *
-     * @return		the revision
-     */
-    public String getRevision() {
-        return RevisionUtils.extract("$Revision: 6404 $");
     }
 
     /**

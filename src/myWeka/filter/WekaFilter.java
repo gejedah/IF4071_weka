@@ -14,7 +14,6 @@ import weka.classifiers.meta.MultiClassClassifier;
 import weka.classifiers.trees.Id3;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;
-import weka.filters.supervised.instance.Resample;
 
 import java.util.Scanner;
 
@@ -56,7 +55,7 @@ public class WekaFilter {
         }
 
         FilterDataset filter = new FilterDataset();
-        filter.loadDataset("src/data/weather.nominal.arff");
+        filter.loadDataset("src/data/iris.arff");
         Instances testSet = filter.percentageSplit(100);
 //        filter.Resample();
         filter.setClassifier(tes);
@@ -70,7 +69,7 @@ public class WekaFilter {
 
         Klasifikasi cls = new Klasifikasi();
 
-        cls.loadDataTest("src/data/test.arff");
+        cls.loadDataTest("src/data/TestIris.arff");
         cls.loadModel("src/data/training_data.model");
         cls.classify();
 
