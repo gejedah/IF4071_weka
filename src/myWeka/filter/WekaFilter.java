@@ -17,6 +17,10 @@ import weka.core.Instances;
 
 import java.util.Scanner;
 
+/**
+ * Created by kevin on 9/27/15.
+ */
+
 public class WekaFilter {
 
     /**
@@ -55,7 +59,7 @@ public class WekaFilter {
         }
 
         FilterDataset filter = new FilterDataset();
-        filter.loadDataset("src/data/iris.arff");
+        filter.loadDataset("src/data/weather.nominal.arff");
         Instances testSet = filter.percentageSplit(100);
 //        filter.Resample();
         filter.setClassifier(tes);
@@ -67,11 +71,11 @@ public class WekaFilter {
 
         //buat klasifikasi suatu data
 
-        Klasifikasi cls = new Klasifikasi();
+//        Klasifikasi cls = new Klasifikasi();
 
-        cls.loadDataTest("src/data/TestIris.arff");
-        cls.loadModel("src/data/training_data.model");
-        cls.classify();
+//        cls.loadDataTest("src/data/TestIris.arff");
+//        cls.loadModel("src/data/training_data.model");
+//        cls.classify();
 
     }
 }

@@ -23,6 +23,10 @@ import weka.core.converters.CSVLoader;
 import weka.filters.Filter.*;
 import weka.filters.supervised.instance.Resample;
 
+/**
+ * Created by kevin on 9/27/15.
+ */
+
 public class FilterDataset {
     private Instances dataTrain;
     private FilteredClassifier classifier;

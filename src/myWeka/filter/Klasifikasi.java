@@ -20,6 +20,10 @@ import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Created by kevin on 9/27/15.
+ */
+
 public class Klasifikasi {
     private Instances instances;
     private FilteredClassifier classifier;

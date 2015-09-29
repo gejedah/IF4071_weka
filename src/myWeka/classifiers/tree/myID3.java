@@ -45,6 +45,7 @@ import java.util.Enumeration;
  * @author Eibe Frank (eibe@cs.waikato.ac.nz)
  * @version $Revision: 6404 $
  */
+
 public class myID3
         extends Id3
         implements TechnicalInformationHandler, Sourcable {
@@ -99,24 +100,13 @@ public class myID3
      * @exception Exception if classifier can't be built successfully
      */
     public void buildClassifier(Instances data) throws Exception {
-
-//        if (data.checkForAttributeType(1)){
             // can classifier handle the data?
             getCapabilities().testWithFail(data);
-
             // remove instances with missing class
             data = new Instances(data);
             data.deleteWithMissingClass();
 
             makeTree(data);
-//        }
- /*       else{
-            System.out.println("gile");
-            m_Successors = null;
-            m_Distribution = null;
-            m_Attribute = null;
-            invalid_att = true;
-        }*/
     }
 
     /**
@@ -233,9 +223,6 @@ public class myID3
      * @return a textual description of the classifier
      */
     public String toString() {
- /*       if (invalid_att){
-            return "Attribute Type must be Nominal";
-        }*/
         if ((m_Distribution == null) && (m_Successors == null)) {
             return "Id3: No model built yet.";
         }
