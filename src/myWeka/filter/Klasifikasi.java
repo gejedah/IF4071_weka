@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package weka.filter;
+package myWeka.filter;
 
 import com.opencsv.CSVReader;
 import weka.classifiers.Classifier;

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package weka.filter;
+package myWeka.filter;
 
 import java.io.*;
 import java.util.List;
@@ -66,25 +66,9 @@ public class FilterDataset {
     }
 
     public void Resample() throws Exception {
-//        int[] tes= new int[dataTrain.numClasses()+1];
-//        tes[0] = 0;
-//        tes[1] = 9;
-//        tes[2] = 10;
-//        System.out.println("Byk Attribut: "+dataTrain.numAttributes());
-//        System.out.println("Byk Instances: "+dataTrain.numInstances());
-//        System.out.println("Byk kelas: " + dataTrain.numClasses());
-//        sampler= new Resample();
-        System.out.println("Sebelum Resample "+ dataTrain);
-//        sampler.setBiasToUniformClass(0.0);
-//        sampler.setInvertSelection(false);
-//        sampler.setInputFormat(dataTrain);
-//        dataTrain.sort(4);
-//        System.out.println("Sesudah disort "+ dataTrain);
-//        sampler.createSubsampleWithoutReplacement(new Random(1), dataTrain.numInstances(), 5, dataTrain.numClasses(), tes);
-//        System.out.println("Sample output: " + sampler.output());
+//        System.out.println("Sebelum Resample "+ dataTrain);
         dataTrain = dataTrain.resample(new Random(2));
-        System.out.println("Sesudah Resample " + dataTrain);
-//        System.out.println("Resample: "+ sampler);
+//        System.out.println("Sesudah Resample " + dataTrain);
     }
 
     public Instances percentageSplit(int percent){

@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package weka.filter;
+package myWeka.filter;
 
+import myWeka.classifiers.tree.myID3;
 import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.meta.FilteredClassifier;
@@ -29,9 +30,11 @@ public class WekaFilter {
         System.out.println("1 untuk NaiveBayes");
         System.out.println("2 untuk J48");
         System.out.println("3 untuk ID3");
+        System.out.println("4 untuk myC45");
+        System.out.println("5 untuk myID3");
         int mode = 0;
         try{
-            while ((mode < 1) || (mode > 3)){
+            while ((mode < 1) || (mode > 5)){
                 System.out.print("Mode yang diinginkan adalah: ");
                 mode = in.nextInt();
                 if (mode == 1){
@@ -42,6 +45,9 @@ public class WekaFilter {
                 }
                 else if (mode == 3){
                     tes.setClassifier(new Id3());
+                }
+                else if (mode == 5){
+                    tes.setClassifier(new myID3());
                 }
             }
             System.out.println("berhasil set classifier");
