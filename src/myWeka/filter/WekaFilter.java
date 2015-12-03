@@ -7,10 +7,8 @@
 package myWeka.filter;
 
 import myWeka.classifiers.tree.myID3;
-import weka.classifiers.Classifier;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.meta.FilteredClassifier;
-import weka.classifiers.meta.MultiClassClassifier;
 import weka.classifiers.trees.Id3;
 import weka.classifiers.trees.J48;
 import weka.core.Instances;

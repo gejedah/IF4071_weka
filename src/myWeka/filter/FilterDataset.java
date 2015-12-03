@@ -6,22 +6,16 @@
 
 package myWeka.filter;
 
-import java.io.*;
-import java.util.List;
-import java.util.Random;
-
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
-import weka.classifiers.bayes.NaiveBayes;
-import weka.classifiers.evaluation.EvaluationUtils;
 import weka.classifiers.meta.FilteredClassifier;
-import weka.classifiers.meta.MultiClassClassifier;
-import weka.core.Attribute;
 import weka.core.Instances;
 import weka.core.converters.ArffLoader.ArffReader;
 import weka.core.converters.CSVLoader;
-import weka.filters.Filter.*;
 import weka.filters.supervised.instance.Resample;
+
+import java.io.*;
+import java.util.Random;
 
 /**
  * Created by kevin on 9/27/15.
@@ -112,7 +106,10 @@ public class FilterDataset {
 //            setClassifier(new FilteredClassifier());
 //            classifier.setFilter(filter);
             Evaluation eval = new Evaluation(dataTrain);
-            eval.crossValidateModel(classifier, dataTrain, 10, new Random(1));
+//            eval.crossValidateModel(classifier, dataTrain, 10, new Random(1));
+            Object hasil = new Object();
+            eval.evaluateModel(classifier,dataTrain,hasil);
+            System.out.println("Hasilnya: "+hasil);
 //            eval.evaluateModel(classifier, dataTrain);
             double[][] tes = eval.confusionMatrix();
             System.out.println("Summary: " + eval.toSummaryString());
